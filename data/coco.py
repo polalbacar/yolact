@@ -137,6 +137,7 @@ class COCODetection(data.Dataset):
         if file_name.startswith('COCO'):
             file_name = file_name.split('_')[-1]
 
+        file_name = os.path.basename(file_name)
         path = osp.join(self.root, file_name)
         assert osp.exists(path), 'Image path does not exist: {}'.format(path)
         

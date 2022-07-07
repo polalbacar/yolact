@@ -128,6 +128,20 @@ dataset_base = Config({
     'label_map': None
 })
 
+window_doors_dataset = dataset_base.copy({
+    'name': 'WindowDoors',
+
+    'train_images': '/hdd1/Datasets/Private/Preprocessed/StageInHome/WindowDoorsV2/images/bedroom',
+    'train_info':   '/hdd1/Datasets/Private/Preprocessed/StageInHome/WindowDoorsV2/annotations/bedroom.json',
+
+    'valid_images': '/hdd1/Datasets/Private/Preprocessed/StageInHome/WindowDoorsV2/images/bedroom',
+    'valid_info':   '/hdd1/Datasets/Private/Preprocessed/StageInHome/WindowDoorsV2/annotations/bedroom.json',
+
+    'has_gt': True,
+    'class_names': ('blind', 'curtain', 'door', 'mirror', 'sliding_door', 'window'),
+    'label_map': { 1:  0,  2:  1,  3:  2,  4:  3,  5:  4}
+})
+
 coco2014_dataset = dataset_base.copy({
     'name': 'COCO 2014',
     
@@ -657,8 +671,8 @@ yolact_base_config = coco_base_config.copy({
     'name': 'yolact_base',
 
     # Dataset stuff
-    'dataset': coco2017_dataset,
-    'num_classes': len(coco2017_dataset.class_names) + 1,
+    'dataset': window_doors_dataset,
+    'num_classes': len(window_doors_dataset.class_names) + 1,
 
     # Image Size
     'max_size': 550,
